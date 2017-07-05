@@ -11,6 +11,8 @@ public interface CustomerDao {
 
     Customer findCustomer(String name);
 
-    List<Customer> findAll(String name);
+    Customer findCustomer(int id);
+
+    List<Customer> findAll();
 
 }

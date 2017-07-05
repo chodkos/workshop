@@ -21,18 +21,30 @@ public class CustomerDaoImpl implements CustomerDao {
 
 
     @Override
-    public Customer findCustomer(String name) {
+    public Customer findCustomer(int id) {
         return null;
     }
 
     @Override
-    public List<Customer> findAll(String name) {
-        return jdbcTemplate.query("SELECT * FROM customer", new RowMapper<Customer>() {
+    public Customer findCustomer(String name) {
+        /*return jdbcTemplate.query("SELECT * FROM customer WHERE name LIKE ?", new RowMapper<Customer>(){
+           @Override
+            public Customer mapRow(ResultSet resultSet, int i) throws SQLException {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                return new Customer(name);
+            }
+        });*/ return null;
+    }
+
+    @Override
+    public List<Customer> findAll() {
+        return jdbcTemplate.query("SELECT * FROM customer", new RowMapper<Customer>()  {
             @Override
             public Customer mapRow(ResultSet resultSet, int i) throws SQLException {
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
-                return new Customer(id, name);
+                return new Customer(name);
 
             }
         });
