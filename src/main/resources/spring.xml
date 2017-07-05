@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <import resource="dao.xml"/>
+    <context:component-scan base-package="pl.com.bootcamp.workshop"/>
+
+<bean id="OrderService" class="pl.com.bootcamp.workshop.service.services.OrderService">
+    <property name="customerDao" ref="CustomerDaoImpl"/>
+    <property name="partsDao" ref="PartsImpl"/>
+    <property name="employeeDao" ref="EmployeeDaoImpl"/>
+    <property name="orderDao" ref="OrderDaoImpl"/>
+    <property name="serviceDao" ref="ServiceDaoImpl"/>
+</bean>
+
+    <bean id="CustomerService" class="pl.com.bootcamp.workshop.service.services.CustomerService">
+        <property name="customerDao" ref="CustomerDaoImpl"/>
+    </bean>
+
+    <bean id="CustomerDaoImpl" class="pl.com.bootcamp.workshop.service.customer.CustomerDaoImpl"/>
+    <bean id="PartsImpl" class="pl.com.bootcamp.workshop.service.parts.PartsDaoImpl"/>
+    <bean id="ServiceDaoImpl" class="pl.com.bootcamp.workshop.service.service.ServiceDaoImpl"/>
+    <bean id="OrderDaoImpl" class="pl.com.bootcamp.workshop.service.order.OrderDaoImpl"/>
+    <bean id="EmployeeDaoImpl" class="pl.com.bootcamp.workshop.service.employee.EmployeeDaoImpl"/>
+
+
+    <bean id="Storage" class="pl.com.bootcamp.workshop.service.storage.Storage"/>
+
+
+   <!-- <bean id="CustomerDao" clapl.com.bootcamp.workshop.service.customeromer.CustomerDao"/>
+    <bean id="CustomerDao" clapl.com.bootcamp.workshop.service.customeromer.CustomerDao"/>-->
+
+
+</beans>
