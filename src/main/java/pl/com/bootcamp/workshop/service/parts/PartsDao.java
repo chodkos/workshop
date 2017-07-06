@@ -7,9 +7,11 @@ import java.util.List;
  */
 public interface PartsDao {
 
-    void addPart(String name, int price);
+    void addPart(String name, int price, int howManyInStorage);
 
-    Parts findByName(String name);
+    Parts findPartByName(String name);
 
-    List<Parts> findAll();
+    Parts findPartById(int id);
+
+    List<Parts> findAllParts();
 }
